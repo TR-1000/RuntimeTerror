@@ -3,14 +3,11 @@ pipeline {
   stages {
     stage('Run') {
       steps {
-        sh '''
+        sh '''cd HotelYeah/
+
 docker stop $(docker ps -a -q)
 
 docker rm $(docker ps -a -q)
-
-pwd
-
-cd HotelYeah/
 
 docker build -t hotelyeah .
 
