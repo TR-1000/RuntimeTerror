@@ -1,12 +1,21 @@
 pipeline {
   agent any
   stages {
-    stage('Move') {
+    stage('Run') {
       steps {
-        sh '''ls
+        sh '''cd HotelYeah/
+
+docker stop $(docker ps -a -q)
+
+docker rm $(docker ps -a -q)
+
+pwd
+
 cd HotelYeah/
-ls
-cp -r HotelYeah/* /home/ec2-user/hotelyeah-frontend/
+
+docker build -t hotelyeah .
+
+docker run -d -p 8081:80 hotelyeah
 '''
       }
     }
