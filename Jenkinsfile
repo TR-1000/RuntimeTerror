@@ -5,13 +5,13 @@ pipeline {
       steps {
         sh '''cd HotelYeah/
 
-docker kill $(docker ps -q)
+sudo docker kill $(docker ps -q)
 
-docker rm $(docker ps -a -q)
+sudo docker rm $(docker ps -a -q)
 
-docker build -t hotelyeah .
+sudo docker build -t hotelyeah .
 
-docker run -d -p 8081:80 hotelyeah
+sudo docker run -d -p 8081:80 hotelyeah
 '''
       }
     }
