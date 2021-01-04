@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('Pull') {
       steps {
-        sh '''
-cp -r HotelYeah/* /home/ec2-user/hotelyeah-frontend/'''
+        sh 'cp -r HotelYeah/* /home/ec2-user/hotelyeah-frontend/'
       }
     }
 
